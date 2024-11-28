@@ -19,7 +19,7 @@ def contact(request):
         from_email = settings.EMAIL_HOST_USER
 
         email_message = mail.EmailMessage(
-            subject=f'Email is from {name}',
+            subject=f"Subject: {subject} (from {name})",
             body=f'User Email: {email}\nUser \n\n\nQuery:\n{message}',
             from_email=from_email,
             to=['nithyapramod97@gmail.com']  
@@ -41,13 +41,15 @@ def contact(request):
         except Exception as e:
             messages.error(request, f'An error occurred while sending the confirmation email: {e}')
 
-    return render(request, 'home.html')
+    return redirect(home)
 
 
 def download_resume(request):
     file_path = os.path.join('static', 'cv', 'Nithya.pdf')
     
     if os.path.exists(file_path):
+        messages.success(request,"Message sent successfully")
         return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='Nithya.pdf')
+       
     else:
         raise Http404("File not found")

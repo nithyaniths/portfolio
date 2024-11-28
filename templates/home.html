@@ -24,14 +24,7 @@
 	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
 	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<style>
-        .success {
-            color: green;
-        }
-        .error {
-            color: red;
-        }
-    </style>
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -408,7 +401,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-7 ftco-animate text-center">
 					<h2>I'm <span>Available</span> for freelancing</h2>
-					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+					<p>Contact me for further enquiries</p>
 				</div>
 			</div>
 		</div>
@@ -496,7 +489,10 @@
 						{% if messages %}
         {% for message in messages %}
 		
-            <p class="{{ message.tags }}">{{ message }}</p>
+<script>
+	alert('{{message}}')
+</script>
+
         {% endfor %}
     {% endif %}
 					</form>
